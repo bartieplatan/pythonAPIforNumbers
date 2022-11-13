@@ -8,6 +8,7 @@ request.open('GET', url, true)
 request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
+  console.log(data)
 view(data, request, id);
 
 }
@@ -22,8 +23,8 @@ request.send()
           console.log(request.status);
           var div = document.createElement("tr");
             var mainContainer = document.getElementById(id);
-          div.innerHTML = "<td>"+query.id+"</td><td><input id='name"+query.id+"' placeholder='"+query.name+"' value='"+query.name+"'/></td><td><input id='email"+query.id+"' placeholder='"+query.email+"' value='"+query.email+"'/></td><td><input id='address"+query.id+"' placeholder='"+query.address+"' value='"+query.address+"'/></td><td><input id='image"+query.id+"' placeholder='"+query.image+"' value='"+query.image+"'/></td>"+"<button onclick = 'deleterecord("+query.id+")' type = 'submit' value='Submit'>Delete</button>"+"<button onclick = 'update("+query.id+")'>Update</button>" ;
-          //
+          div.innerHTML = "<td>"+query.id+"</td><td><input id='name"+query.id+"' placeholder='"+query.name+"' value='"+query.name+"'/></td><td><input id='email"+query.id+"' placeholder='"+query.email+"' value='"+query.email+"'/></td><td><input id='address"+query.id+"' placeholder='"+query.address+"' value='"+query.address+"'/></td><td><input id='nickname"+query.id+"' placeholder='"+query.nickname+"' value='"+query.nickname+"'/><td><img id='image"+query.id+"' src='"+query.image+"'/></td>"+"<button onclick = 'deleterecord("+query.id+")' type = 'submit' value='Submit'>Delete</button>"+"<button onclick = 'update("+query.id+")'>Update</button>" ;
+          console.log(data)
           mainContainer.appendChild(div)
         })
       } else {
@@ -49,6 +50,7 @@ function update(id){
     name: document.getElementById("name"+id).value,
     email: document.getElementById("email"+id).value,
     address:document.getElementById("address"+id).value,
+    nickname:document.getElementById("nickname"+id).value,
     image: document.getElementById("image"+id).value
   });
   
