@@ -1,0 +1,30 @@
+body{
+    background-color: cornsilk;
+    font-family: Monotype Corsiva;
+    text-align: center;
+}
+.container{
+    border: 1px solid black;
+    box-shadow: 5px 10px gray;
+    border-radius: 5%;
+    display: inline-block;
+    font-size: 36px;
+    padding: 5px;
+    margin: 5px;
+}
+input{
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin: 8px 0px;
+}
+button{
+    border-radius: 4px;
+    background-color: mistyrose;
+    font-size: 18px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+}
+button:hover{
+    background-color: peachpuff;
+    cursor: pointer;
+}
