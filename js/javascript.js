@@ -23,7 +23,7 @@ request.send()
           console.log(request.status);
           var div = document.createElement("tr");
             var mainContainer = document.getElementById(id);
-          div.innerHTML = "<td>"+query.id+"</td><td><input id='name"+query.id+"' placeholder='"+query.name+"' value='"+query.name+"'/></td><td><input id='email"+query.id+"' placeholder='"+query.email+"' value='"+query.email+"'/></td><td><input id='address"+query.id+"' placeholder='"+query.address+"' value='"+query.address+"'/></td><td><input id='nickname"+query.id+"' placeholder='"+query.nickname+"' value='"+query.nickname+"'/><td><img id='image"+query.id+"' src='"+query.image+"'/></td>"+"<form method=post enctype=multipart/form-data>"+"<input type=file name=file>"+"<input type=submit onclick='images()' value=Upload>"+"</form>"+"<button onclick = 'deleterecord("+query.id+")' type = 'submit' value='Submit'>Delete</button>"+"<button onclick = 'update("+query.id+")'>Update</button>" ;
+          div.innerHTML = "<td>"+query.id+"</td><td><input id='name"+query.id+"' placeholder='"+query.name+"' value='"+query.name+"'/></td><td><input id='email"+query.id+"' placeholder='"+query.email+"' value='"+query.email+"'/></td><td><input id='address"+query.id+"' placeholder='"+query.address+"' value='"+query.address+"'/></td><td><input id='phone"+query.id+"' placeholder='"+query.phone+"' value='"+query.phone+"'/><td><input id='position"+query.id+"' placeholder='"+query.position+"' value='"+query.position+"'/><td>"+"<button onclick = 'deleterecord("+query.id+")' type = 'submit' value='Submit'>Törlés</button>"+"<button onclick = 'update("+query.id+")'>Módosítás</button>" ;
           console.log(data)
           mainContainer.appendChild(div)
         })
@@ -44,17 +44,14 @@ function deleterecord(id){
   navigator.sendBeacon('http://127.0.0.1:5000/deleterecord/', data);
   console.log(data);
 }
-function images(){
-  navigator.sendBeacon('http://127.0.0.1:5000/images/');
-}
 function update(id){
   const data = JSON.stringify({
     id: id,
     name: document.getElementById("name"+id).value,
     email: document.getElementById("email"+id).value,
     address:document.getElementById("address"+id).value,
-    nickname:document.getElementById("nickname"+id).value,
-    image: document.getElementById("image"+id).value
+    phone:document.getElementById("phone"+id).value,
+    position:document.getElementById("position"+id).value
   });
   
   navigator.sendBeacon('http://127.0.0.1:5000/updatedetails/', data);
